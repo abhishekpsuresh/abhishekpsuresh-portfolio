@@ -45,11 +45,11 @@ header>*{pointer-events:auto}
 .brand{display:flex;align-items:center;gap:12px;font-weight:500;font-size:16px}
 .brand i{font-style:normal;width:34px;height:34px;border-radius:50%;background:var(--bg2);border:1px solid #2a2a2c;display:grid;place-items:center;font-size:13px;font-weight:600}
 .pill{display:flex;gap:2px;padding:6px;background:rgba(18,18,20,.82);backdrop-filter:blur(14px);border:1px solid var(--line);border-radius:99px}
-.pill a{padding:7px 14px;font-size:14px;border-radius:99px;display:flex;align-items:center;gap:7px;color:#d8d6d0;transition:background .25s}
+.pill a{padding:7px 11px;font-size:14px;border-radius:99px;display:flex;align-items:center;gap:7px;color:#d8d6d0;transition:background .25s}
 .pill a{transition:background .3s,color .3s,box-shadow .3s}.pill a:hover{background:#f3f1ec;color:#0b0b0c;box-shadow:0 0 28px rgba(214,58,28,.45)}.pill a.on:hover::before{background:#d63a1c}
 .pill a.on::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--ac)}
 #burger{display:none;pointer-events:auto;background:var(--bg2);border:1px solid var(--line);color:var(--fg);border-radius:99px;padding:9px 16px;font:500 13px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.14em;cursor:pointer}
-@media(max-width:1060px){#burger{display:block}.pill{position:fixed;top:calc(70px + env(safe-area-inset-top,0px));left:16px;right:16px;flex-direction:column;border-radius:18px;padding:12px;transform:translateY(-140%);transition:transform .4s}.pill.open{transform:none}}
+@media(max-width:1280px){#burger{display:block}.pill{position:fixed;top:calc(70px + env(safe-area-inset-top,0px));left:16px;right:16px;flex-direction:column;border-radius:18px;padding:12px;transform:translateY(-140%);transition:transform .4s}.pill.open{transform:none}}
 /* side dots */
 #dots{position:fixed;right:16px;top:50%;translate:0 -50%;z-index:55;display:flex;flex-direction:column;gap:11px;padding:14px 8px;background:rgba(18,18,20,.8);border:1px solid var(--line);border-radius:99px}
 #dots a{width:5px;height:5px;border-radius:50%;background:#4a4a4c;transition:.3s}#dots a.on{background:#ff4a2a;box-shadow:0 0 10px #ff4a2a;transform:scale(1.5)}
@@ -120,7 +120,20 @@ header>*{pointer-events:auto}
 @media(max-width:760px){.pmg,.pjg{grid-template-columns:1fr}}
 .ph{display:flex;justify-content:space-between;align-items:center;gap:10px}.bd{display:inline-flex;align-items:center;gap:8px;font:500 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);border:1px solid #4a2018;background:rgba(40,14,9,.6);padding:5px 12px;border-radius:99px}.bd i,.lbl .bd i{display:block;width:7px;height:7px;border-radius:50%;background:var(--ac);animation:pl 1.8s infinite}
 .lcard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(transparent,#0d0a0a 85%);pointer-events:none}.lt,.lb{z-index:2}
-.stmt .sub{display:block;font-size:19px;line-height:1.75;font-weight:400;letter-spacing:0;color:#b4b4b0;max-width:820px;margin-top:26px}
+.stmt{margin-bottom:50px}
+.abg{display:grid;grid-template-columns:1fr 340px;gap:clamp(30px,6vw,90px);align-items:center;margin:0 0 80px}
+.abt .sub{font-size:19px;line-height:1.75;color:#b4b4b0;margin:0 0 1.3em;max-width:760px}
+.pf{position:relative;margin:0;width:100%;max-width:340px;aspect-ratio:340/450;border-radius:200px 200px 22px 22px;overflow:hidden;background:radial-gradient(ellipse 80% 55% at 50% 100%,rgba(214,58,28,.6),transparent 70%),#141416;border:1px solid #4a2a22;box-shadow:0 30px 90px rgba(214,58,28,.2),inset 0 0 0 6px #0b0b0c;transition:transform .25s ease-out,box-shadow .4s;will-change:transform;justify-self:end}
+.pf:hover{box-shadow:0 30px 110px rgba(214,58,28,.35),inset 0 0 0 6px #0b0b0c}
+.pf img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 0;transform:scale(1.02);transition:transform .25s ease-out}
+.pf::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 62%,rgba(11,11,12,.92));pointer-events:none}
+.pf figcaption{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 22px 22px;text-align:center;display:grid;gap:3px}
+.pf figcaption b{font-size:19px;font-weight:600;letter-spacing:-.02em}.pf figcaption span{font:400 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--ac)}
+@media(max-width:820px){.abg{grid-template-columns:1fr}.pf{justify-self:center}}
+.pm.sm{width:min(580px,100%)}.det{display:none!important}
+.cg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}.cg.two{grid-template-columns:repeat(2,1fr)}.cc{display:flex;flex-direction:column;gap:10px;min-height:300px;background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:26px;transition:background .3s,border-color .3s,transform .4s}.cc:hover{background:#161618;border-color:#5a2a20;transform:translateY(-5px)}.cc .cn{font:400 13px "JetBrains Mono",ui-monospace,monospace;color:var(--ac);letter-spacing:.16em}.cc h3{font-size:clamp(19px,1.7vw,24px);line-height:1.2;font-weight:500;letter-spacing:-.025em;transition:color .3s}.cc .meta{font:400 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);line-height:1.6}.cc:hover h3{color:var(--ac)}.cc p{margin:0;font-size:15px}.cc .go{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;display:flex;justify-content:space-between;font:400 13px "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em}.cc .go span{color:var(--ac);font-size:16px}
+@media(max-width:900px){.cg{grid-template-columns:1fr 1fr}}@media(max-width:560px){.cg,.cg.two{grid-template-columns:1fr}}
+#home .wrap{width:100%}
 /* approach rows */
 .rows{margin-top:50px;border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:70px 1fr 1.3fr;gap:24px;padding:42px 0;border-bottom:1px solid var(--line);align-items:start;opacity:.45;transition:opacity .4s,padding .4s}
@@ -195,7 +208,7 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 
 <header>
 <button id="burger" aria-expanded="false">MENU</button>
-<nav class="pill" id="pill" aria-label="Main"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#resume">Resume</a><a href="#contact">Contact</a></nav>
+<nav class="pill" id="pill" aria-label="Main"><a href="#home">Home</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#certificates">Certificates</a><a href="#achievements">Achievements</a><a href="#resume">Resume</a><a href="#contact">Contact</a></nav>
 </header>
 <div id="dots" aria-hidden="true"></div><div id="tag" aria-hidden="true"></div>
 
@@ -215,7 +228,9 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 <section id="about" data-n="Who I am">
 <div class="wrap">
 <div class="lbl rv"><b>01</b><i></i>Who I am</div>
-<p class="stmt rv">Curious by nature, security-minded by design. I’m a BCA student passionate about cybersecurity, infrastructure security, cloud technologies, and building secure real-world applications.<span class="sub">My foundation is a Computer Applications degree at Marian College Kuttikkanam, where cloud security, ethical hacking and IoT security shape how I look at every system: each service, device and login is something to understand before it can be protected. I learn best by doing, so classroom ideas quickly become labs, scans, small applications and containers that I can break, fix and explain.</span><span class="sub">Beyond the classroom, hands-on industry training has taken me through AWS and Azure environments, Linux server hardening and automated deployments with Ansible and CI/CD, while a Microsoft Cybersecurity Analyst certification added the enterprise view of threats, identity and compliance. A top-four finish in a network design and implementation event, and a bus-booking platform built from scratch, showed me how design choices in networks and code decide how secure a system really is.</span><span class="sub">Right now I am aiming for roles in cloud security, penetration testing and security operations, where I can keep learning on real infrastructure while building the habits of careful testing and clear reporting.</span></p>
+<p class="stmt rv">Curious by nature, security-minded by design. I’m a BCA student passionate about cybersecurity, infrastructure security, cloud technologies, and building secure real-world applications.</p>
+<div class="abg rv"><div class="abt"><p class="sub">My foundation is a Computer Applications degree at Marian College Kuttikkanam, where cloud security, ethical hacking and IoT security shape how I look at every system: each service, device and login is something to understand before it can be protected. I learn best by doing, so classroom ideas quickly become labs, scans, small applications and containers that I can break, fix and explain.</p><p class="sub">Beyond the classroom, hands-on industry training has taken me through AWS and Azure environments, Linux server hardening and automated deployments with Ansible and CI/CD, while a Microsoft Cybersecurity Analyst certification added the enterprise view of threats, identity and compliance. A top-four finish in a network design and implementation event, and a bus-booking platform built from scratch, showed me how design choices in networks and code decide how secure a system really is.</p><p class="sub">Right now I am aiming for roles in cloud security, penetration testing and security operations, where I can keep learning on real infrastructure while building the habits of careful testing and clear reporting.</p></div>
+<figure class="pf" id="pf"><img id="pfimg" alt="Portrait of Abhishek P Suresh" width="680" height="900" decoding="async" loading="lazy" src="assets/abhishek.webp"><figcaption><b>Abhishek P Suresh</b><span>Cybersecurity Student</span></figcaption></figure></div>
 <div class="stats rv"><div><b>4</b><span>Focus areas</span></div><div><b>4</b><span>Featured projects</span></div><div><b>6</b><span>Toolkits</span></div><div><b>7.95</b><span>CGPA</span></div></div>
 <div class="lc2 rv"><div class="lcard" id="lcard"><canvas id="lc" aria-hidden="true"></canvas><div class="lt mono"><span class="dot"></span>LIVING CANVAS</div><div class="lb"><b>Abhishek P Suresh</b><small>CYBERSECURITY &amp; CLOUD SECURITY</small><em>MOVE TO ALIGN · HOLD TO SWIRL · CLICK FOR A WAVE</em></div></div><div><h3>What I enjoy building</h3><p>Security work where a design, a configuration and a test finally line up, from locked-down cloud accounts to IoT devices that prove who they are.</p><h3>Where I’m heading</h3><p>A career securing cloud and IoT infrastructure, while staying hands-on with the tools and the systems behind them.</p></div></div>
 <h2 class="rv" style="margin-top:110px">How I think about <span class="ac">security.</span></h2>
@@ -267,9 +282,9 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 <div class="ti rv"><div class="d">June 2026 · 8 weeks</div><div class="b"><h3>IPSR Solutions Limited</h3><div class="r">AI-Integrated Cloud, DevOps &amp; Cybersecurity Intern</div><p>An intensive 240-hour programme across AWS and Azure infrastructure, Linux server hardening and vulnerability assessment, Ansible and CI/CD automation, and a capstone project.</p></div></div>
 <div class="ti rv"><div class="d">Achievement</div><div class="b"><h3>Rank 04</h3><div class="r">Network Design &amp; Implementation event</div><p>Held during the Summer Internship in Cloud, DevOps &amp; Cybersecurity.</p></div></div>
 <div class="ti rv"><div class="d">Mar 3, 2026</div><div class="b"><h3>Microsoft Cybersecurity Analyst</h3><div class="r">Professional Certificate · Microsoft via Coursera</div><p>A nine-course program covering threat vectors and mitigation, identity and access with Azure AD, Microsoft Defender, tools, management and compliance, and a capstone project, with preparation for the SC-900 exam.</p><a class="ac" href="https://coursera.org/verify/professional-cert/NL2HAGCMKN96" target="_blank" rel="noopener noreferrer">Verify certificate ↗</a></div></div>
-<div class="ti rv"><div class="d">Certificate</div><div class="b"><h3>Red Hat OpenShift AI</h3></div></div>
-<div class="ti rv"><div class="d">Certificate</div><div class="b"><h3>Red Hat Automate IT</h3></div></div>
-<div class="ti rv"><div class="d">Certificate</div><div class="b"><h3>Introduction to RPA using UiPath</h3></div></div>
+<div class="ti rv"><div class="d">23 Apr 2026</div><div class="b"><h3>Getting Started with OpenShift AI</h3><div class="r">Webinar · Red Hat × IPSR Solutions</div></div></div>
+<div class="ti rv"><div class="d">28 May 2026</div><div class="b"><h3>Automate IT the Smart Way with Ansible</h3><div class="r">Webinar · Red Hat × IPSR Solutions</div></div></div>
+<div class="ti rv"><div class="d">19 Aug 2026</div><div class="b"><h3>Introduction to RPA</h3><div class="r">UiPath</div></div></div>
 </div>
 </div>
 </section>
@@ -284,7 +299,11 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 </div>
 </section>
 
-<section id="process" data-n="Process"><div class="wrap"><div class="lbl rv"><b>07</b><i></i>How I work</div><h2 class="rv">A repeatable path from <span class="ac">scope to findings.</span></h2><div class="rows">
+<section id="certificates" data-n="Certificates"><div class="wrap"><div class="lbl rv"><b>07</b><i></i>Certificates</div><h2 class="rv">Certificates &amp; <span class="ac">credentials.</span></h2><p class="lead rv">Courses, programmes and training I have completed across cybersecurity, cloud and DevOps. Each card opens the certificate on LinkedIn.</p><div class="cg rv" id="cg"></div></div></section>
+
+<section id="achievements" data-n="Achievements"><div class="wrap"><div class="lbl rv"><b>08</b><i></i>Achievements</div><h2 class="rv">Achievements &amp; <span class="ac">recognition.</span></h2><p class="lead rv">Recognition from events, challenges and educational programmes. Each card opens on LinkedIn.</p><div class="cg two rv" id="ag"></div></div></section>
+
+<section id="process" data-n="Process"><div class="wrap"><div class="lbl rv"><b>09</b><i></i>How I work</div><h2 class="rv">A repeatable path from <span class="ac">scope to findings.</span></h2><div class="rows">
 <div class="row rv"><span class="n">01</span><h3>Scope</h3><p>Define what is being assessed and what is out of bounds before touching anything.</p></div>
 <div class="row rv"><span class="n">02</span><h3>Map</h3><p>Identify hosts, services, identities and data flows so the attack surface is visible.</p></div>
 <div class="row rv"><span class="n">03</span><h3>Test</h3><p>Probe with hands-on tooling and validate each finding rather than trusting a scan.</p></div>
@@ -292,9 +311,9 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 <div class="row rv"><span class="n">05</span><h3>Fix &amp; verify</h3><p>Recommend controls, then re-test that they actually hold.</p></div>
 </div></div></section>
 
-<section id="focus" data-n="Current focus"><div class="wrap"><div class="lbl rv"><b>08</b><i></i>Current focus</div><h2 class="rv">Right now: <span class="ac">6th semester,</span> deeper into cloud and IoT security.</h2><p class="lead rv">I’m building depth in cloud security, ethical hacking and IoT security through coursework, labs and projects, while training on Red Hat’s automation and AI platforms.</p><div class="stats rv" style="margin-top:50px"><div><b style="font-size:26px">BCA</b><span>Studying</span></div><div><b style="font-size:26px">Semester 6</b><span>Current stage</span></div><div><b style="font-size:26px">Cloud · IoT · Offensive</b><span>Focus</span></div></div></div></section>
+<section id="focus" data-n="Current focus"><div class="wrap"><div class="lbl rv"><b>10</b><i></i>Current focus</div><h2 class="rv">Right now: <span class="ac">6th semester,</span> deeper into cloud and IoT security.</h2><p class="lead rv">I’m building depth in cloud security, ethical hacking and IoT security through coursework, labs and projects, while training on Red Hat’s automation and AI platforms.</p><div class="stats rv" style="margin-top:50px"><div><b style="font-size:26px">BCA</b><span>Studying</span></div><div><b style="font-size:26px">Semester 6</b><span>Current stage</span></div><div><b style="font-size:26px">Cloud · IoT · Offensive</b><span>Focus</span></div></div></div></section>
 
-<section id="why" data-n="Why me"><div class="wrap"><div class="lbl rv"><b>09</b><i></i>Why work with me</div><h2 class="rv">What you can <span class="ac">count on.</span></h2><div class="eco rv">
+<section id="why" data-n="Why me"><div class="wrap"><div class="lbl rv"><b>11</b><i></i>Why work with me</div><h2 class="rv">What you can <span class="ac">count on.</span></h2><div class="eco rv">
 <div class="card"><span class="n">01</span><div><h4>Range across the stack</h4><p>Cloud, IoT, offensive security and DevOps in one learner, so I see how weaknesses connect.</p></div></div>
 <div class="card"><span class="n">02</span><div><h4>Hands-on by default</h4><p>Projects built and tested with real tooling such as Nmap, Burp Suite, Wireshark and AWS.</p></div></div>
 <div class="card"><span class="n">03</span><div><h4>Findings you can act on</h4><p>I write things down so the next person can reproduce an issue and fix it.</p></div></div>
@@ -303,7 +322,7 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 
 <section id="build" data-n="Services">
 <div class="wrap">
-<div class="lbl rv"><b>10</b><i></i>Let’s talk</div>
+<div class="lbl rv"><b>12</b><i></i>Let’s talk</div>
 <div class="big2 rv">What I can build <span class="ac">with you.</span></div>
 <p class="lead rv">I’m looking to work on real problems where security is part of the design, and to contribute, learn and experiment alongside the people building them.</p>
 <div class="chips rv"><span>Cybersecurity projects</span><span>Cloud infrastructure</span><span>Secure IoT solutions</span><span>Web applications</span><span>Security research &amp; experimentation</span></div>
@@ -313,9 +332,9 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 
 <section id="resume" data-n="Resume">
 <div class="wrap">
-<div class="lbl rv"><b>11</b><i></i>Resume</div>
+<div class="lbl rv"><b>13</b><i></i>Resume</div>
 <h2 class="rv">My <span class="ac">resume.</span></h2>
-<div class="btns rv" style="margin:0 0 10px"><a class="btn pri" id="dl" href="resume.pdf" download="ABHISHEK_P_SURESH_Resume.pdf" style="display:none">Download resume (PDF) ↓</a></div>
+<div class="btns rv" style="margin:0 0 10px"><a class="btn pri" id="dl" href="resume.pdf" download="ABHISHEK_P_SURESH_Resume.pdf">Download resume (PDF) ↓</a></div>
 <div class="rcard rv">
 <h3>Abhishek P Suresh</h3><div class="sub">Cybersecurity Student · Cloud Security · Ethical Hacking · IoT Security</div>
 <div class="kv"><span>Email</span><a class="ac" href="mailto:abhishekpsuresh206@gmail.com">abhishekpsuresh206@gmail.com</a><span>LinkedIn</span><a class="ac" href="https://www.linkedin.com/in/abhishekpsuresh0210/" target="_blank" rel="noopener noreferrer">linkedin.com/in/abhishekpsuresh0210</a><span>GitHub</span><a class="ac" href="https://github.com/abhishekpsuresh" target="_blank" rel="noopener noreferrer">github.com/abhishekpsuresh</a></div>
@@ -345,12 +364,12 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 
 <footer id="contact" data-n="Contact">
 <div class="wrap">
-<div class="lbl rv"><b>12</b><i></i>Contact</div>
+<div class="lbl rv"><b>14</b><i></i>Contact</div>
 <h2 class="rv">Let’s start a <span class="ac">conversation.</span></h2>
 <p class="lead rv" style="margin-bottom:70px">Tell me a little about what you’re working on. A few lines is plenty.</p>
 <div class="fg rv">
-<div><div class="lbl">Let’s talk</div><a class="em" href="mailto:abhishekpsuresh206@gmail.com">abhishekpsuresh206@gmail.com</a><p style="margin-top:14px;max-width:340px;font-size:16px">Open to conversations about cybersecurity, cloud and IoT work. The quickest way to reach me is email.</p><div class="btns" style="margin-top:20px"><a class="btn pri" href="mailto:abhishekpsuresh206@gmail.com">Email me →</a><a class="btn" href="https://www.linkedin.com/in/abhishekpsuresh0210/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn" href="https://github.com/abhishekpsuresh" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div>
-<div><div class="lbl">Navigate</div><ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#education">Education</a></li><li><a href="#resume">Resume</a></li></ul></div>
+<div><div class="lbl">Let’s talk</div><a class="em" href="mailto:abhishekpsuresh206@gmail.com">abhishekpsuresh206@gmail.com</a><p style="margin-top:14px;max-width:340px;font-size:16px">Open to conversations about cybersecurity, cloud and IoT work. The quickest way to reach me is email.</p><p class="mono" style="margin-top:6px;font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)">Based in Manimala, Kanjirappally, Kottayam, Kerala</p><div class="btns" style="margin-top:20px"><a class="btn pri" href="mailto:abhishekpsuresh206@gmail.com">Email me →</a><a class="btn" href="https://www.linkedin.com/in/abhishekpsuresh0210/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a><a class="btn" href="https://github.com/abhishekpsuresh" target="_blank" rel="noopener noreferrer">GitHub ↗</a></div></div>
+<div><div class="lbl">Navigate</div><ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#education">Education</a></li><li><a href="#certificates">Certificates</a></li><li><a href="#achievements">Achievements</a></li><li><a href="#resume">Resume</a></li></ul></div>
 <div><div class="lbl">Elsewhere</div><ul><li><a href="https://github.com/abhishekpsuresh" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li><li><a href="https://www.linkedin.com/in/abhishekpsuresh0210/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li><li><a href="mailto:abhishekpsuresh206@gmail.com">Email</a></li></ul></div>
 </div>
 <div class="name" aria-hidden="true">Abhishek<br>P Suresh</div>
@@ -379,7 +398,7 @@ $('#eco').innerHTML=K.map(function(k,i){return'<div class="card"><span class="n"
 /* services switcher */
 function svc(i){var s=SV[i];$('#snum').textContent='0'+(i+1);$('#sbody').innerHTML='<h3>'+s[0].replace('&','&amp;')+' <em>'+s[1]+'</em></h3><p style="margin-top:16px;max-width:460px">'+s[2]+'</p><div class="what">What I work with</div><ul>'+s[3].map(function(x){return'<li>'+x+'</li>'}).join('')+'</ul><button class="more" aria-expanded="false">The technical detail <span>+</span></button><div class="det"><div class="what">Technologies</div><div class="tg">'+TD[i][0].map(function(x){return'<span>'+x+'</span>'}).join('')+'</div><div class="what">Problem it solves</div><p>'+TD[i][1]+'</p></div>';var mb=$('#sbody .more');mb.onclick=function(){var o=mb.getAttribute('aria-expanded')!='true';mb.setAttribute('aria-expanded',o);mb.querySelector('span').textContent=o?'−':'+';$('#sbody .det').classList.toggle('open',o)};$$('#snav button').forEach(function(b,j){b.setAttribute('aria-selected',j==i)})}
 $('#snav').innerHTML=SV.map(function(s,i){return'<li><button data-i="'+i+'">'+s[0].replace('&','&amp;')+'</button></li>'}).join('');
-var cur=-1,scr=$('#scrolly');function go(i){if(i==cur)return;cur=i;svc(i);var n=$('#snum'),sb=$('#sbody');n.classList.remove('sw');sb.classList.remove('sw');void n.offsetWidth;n.classList.add('sw');sb.classList.add('sw')}
+var cur=-1,scr=$('#scrolly');function go(i){if(i==cur)return;cur=i;svc(i);var mb2=$('#sbody .more');mb2.onclick=function(){openT(i,mb2)};var n=$('#snum'),sb=$('#sbody');n.classList.remove('sw');sb.classList.remove('sw');void n.offsetWidth;n.classList.add('sw');sb.classList.add('sw')}
 function sp(){var r=scr.getBoundingClientRect(),R=scr.offsetHeight-innerHeight,p=Math.max(0,Math.min(1,-r.top/R));go(Math.min(SV.length-1,Math.floor(p*SV.length)))}
 addEventListener('scroll',sp,{passive:true});addEventListener('resize',sp);
 $$('#snav button').forEach(function(b){b.onclick=function(){var r=scr.getBoundingClientRect(),R=scr.offsetHeight-innerHeight,i=+b.dataset.i;scrollTo({top:scrollY+r.top+(i+.5)/SV.length*R,behavior:'smooth'})}});sp();
@@ -428,9 +447,22 @@ pjg.innerHTML=PJ.map(function(d,i){return'<div class="pjc" role="button" tabinde
 function openP(i,el){var d=PJ[i],h='<div class="lbl"><b>'+d.n+'</b><i></i>Project'+(d.st?'<span class="bd" style="margin-left:14px"><i></i>'+d.st+'</span>':'')+'</div><h3 id="pmt">'+d.t+'</h3><p class="pbr">'+d.b+'</p><div class="pmg">';
 d.sec.forEach(function(x){h+='<div class="ps'+(x[3]?' w':'')+'"><h5>'+x[0]+'</h5>'+(x[1]=='p'?'<p>'+x[2]+'</p>':x[1]=='ul'?'<ul>'+x[2].map(function(l){return'<li>'+l+'</li>'}).join('')+'</ul>':'<div class="tg">'+x[2].map(function(t){return'<span>'+t+'</span>'}).join('')+'</div>')+'</div>'});
 h+='</div>';if(d.ln.length)h+='<div class="btns">'+d.ln.map(function(l,k){return'<a class="btn'+(k?'':' pri')+'" href="'+l[1]+'" target="_blank" rel="noopener noreferrer">'+l[0]+' ↗</a>'}).join('')+'</div>';
-pmc.innerHTML=h;lastc=el;pm.classList.add('on');pmc.scrollTop=0;document.body.style.overflow='hidden';
-var box=$('.pm',pm),r=el.getBoundingClientRect();box.style.transformOrigin=(r.left+r.width/2-(innerWidth-box.offsetWidth)/2)+'px '+(r.top+r.height/2-(innerHeight-box.offsetHeight)/2)+'px';
-void box.offsetWidth;requestAnimationFrame(function(){pm.classList.add('open');$('#pmx').focus({preventScroll:true})})}
+showPM(h,el,0)}
+function showPM(h,el,sm){pmc.innerHTML=h;lastc=el;pm.classList.add('on');pmc.scrollTop=0;document.body.style.overflow='hidden';var box=$('.pm',pm),r=el.getBoundingClientRect();box.classList.toggle('sm',!!sm);void box.offsetWidth;box.style.transformOrigin=(r.left+r.width/2-(innerWidth-box.offsetWidth)/2)+'px '+(r.top+r.height/2-(innerHeight-box.offsetHeight)/2)+'px';void box.offsetWidth;requestAnimationFrame(function(){pm.classList.add('open');$('#pmx').focus({preventScroll:true})})}
+function openT(i,el){var s=SV[i],t=TD[i],li=function(x){return'<li>'+x+'</li>'},tg=function(x){return'<span>'+x+'</span>'};showPM('<div class="lbl"><b>0'+(i+1)+'</b><i></i>Technical detail</div><h3 id="pmt" style="font-size:clamp(26px,3.6vw,44px)">'+s[0].replace('&','&amp;')+'</h3><p class="pbr" style="font-size:16px">'+s[2]+'</p><div class="ps"><h5>Technologies</h5><div class="tg">'+t[0].map(tg).join('')+'</div></div><div class="ps"><h5>Problem it solves</h5><p>'+t[1]+'</p></div><div class="ps"><h5>What I work with</h5><ul>'+s[3].map(li).join('')+'</ul></div>',el,1)}
+var CERTS=[
+['https://lnkd.in/p/gmM5hkCe','Containers &amp; Kubernetes Made Easy with OpenShift','Webinar','Red Hat × IPSR Solutions','30 Jul 2026','A Red Hat webinar on running containerised applications with Kubernetes and OpenShift, held with IPSR Solutions Limited.'],
+['https://lnkd.in/p/gqBE-M9u','Introduction to RPA','Course','UiPath','19 Aug 2026','An introductory course on robotic process automation with UiPath, the basis for automating repetitive digital tasks.'],
+['https://lnkd.in/p/gjzjHgMq','Automate IT the Smart Way with Ansible','Webinar','Red Hat × IPSR Solutions','28 May 2026','A Red Hat webinar on automating IT work with Ansible, closely tied to the Ansible and CI/CD automation I practised in my training.'],
+['https://lnkd.in/p/gmqAtEEZ','AI-Integrated Cloud, DevOps &amp; Cybersecurity Internship','Internship certificate','IPSR Solutions Limited','3 Jun 2026','An 8-week, 240-hour programme covering network monitoring, Linux administration, AWS and Azure, CI/CD, Ansible, security hardening and a capstone project.'],
+['https://lnkd.in/p/gRv4qixx','AI-Integrated Cloud, DevOps &amp; Cybersecurity','Industry-led course','IPSR Solutions Limited','6 May 2026','A 30-hour industry-led certificate course on AI-integrated cloud, DevOps and cybersecurity, delivered by IPSR Solutions Limited.'],
+['https://lnkd.in/p/gJEEbCXb','Getting Started with OpenShift AI for Future Careers','Webinar','Red Hat × IPSR Solutions','23 Apr 2026','A Red Hat webinar introducing OpenShift AI and how it fits into future careers in cloud and AI.'],
+['https://lnkd.in/p/gySbKfnB','Microsoft Cybersecurity Analyst','Professional certificate','Microsoft via Coursera','3 Mar 2026','A nine-course programme on threat mitigation, identity and access with Azure AD, Microsoft Defender and compliance, ending in a capstone and SC-900 exam preparation.']],
+ACH=[
+['https://lnkd.in/p/gqZGiBYJ','Rank 04 in Network Design &amp; Implementation','Event achievement','IPSR Solutions Limited','Summer Internship','Secured fourth rank in a network design and implementation challenge during the summer internship in cloud, DevOps and cybersecurity, strengthening my networking concepts, real-world implementation and problem-solving under pressure.'],
+['https://lnkd.in/p/gdRzq28W','Project Udaan: Adani Facilities Visit','Educational visit','Adani Foundation','4 Feb 2026','Took part in Project Udaan, an educational visit to the Adani facilities at Trivandrum Port, representing Marian College Kuttikkanam.']];
+function cards(id,arr){$(id).innerHTML=arr.map(function(c,i){return'<a class="cc" href="'+c[0]+'" target="_blank" rel="noopener noreferrer"><span class="cn">0'+(i+1)+'</span><h3>'+c[1]+'</h3><div class="meta">'+c[2]+' · '+c[3]+' · '+c[4]+'</div><p>'+c[5]+'</p><div class="go">View on LinkedIn <span>↗</span></div></a>'}).join('')}
+cards('#cg',CERTS);cards('#ag',ACH);
 function closeP(){if(!pm.classList.contains('open'))return;pm.classList.remove('open');setTimeout(function(){pm.classList.remove('on');pmc.scrollTop=0;document.body.style.overflow='';if(lastc)lastc.focus({preventScroll:true})},900)}
 pjg.addEventListener('click',function(e){var c=e.target.closest('.pjc');if(c)openP(+c.dataset.i,c)});
 pjg.addEventListener('keydown',function(e){var c=e.target.closest('.pjc');if(c&&(e.key=='Enter'||e.key==' ')){e.preventDefault();openP(+c.dataset.i,c)}});
@@ -443,7 +475,7 @@ D.innerHTML=S.map(function(s){return'<a href="#'+s.id+'"></a>'}).join('');
 var so=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var i=S.indexOf(x.target);$$('#dots a').forEach(function(a,j){a.classList.toggle('on',j==i)});links.forEach(function(a){var h=a.getAttribute('href').slice(1);var m=x.target.id==h||(h=='skills'&&x.target.id=='skills')||(h=='about'&&x.target.id=='what')||(h=='projects'&&0)||(h=='education'&&x.target.id=='build');a.classList.toggle('on',x.target.id==h)});tag.textContent=('0'+(i+1)).slice(-2)+' '+x.target.dataset.n;tag.style.opacity=i?1:0})},{rootMargin:'-45% 0px -50% 0px'});S.forEach(function(s){so.observe(s)});
 var b=$('#burger'),pl=$('#pill');b.onclick=function(){b.setAttribute('aria-expanded',pl.classList.toggle('open'))};links.forEach(function(a){a.onclick=function(){pl.classList.remove('open')}});
 $('#top').onclick=function(){scrollTo({top:0,behavior:'smooth'})};$('#yr').textContent=new Date().getFullYear();
-function clk(){$('#clock').textContent='IST '+new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit'})}clk();setInterval(clk,20000);
+function clk(){$('#clock').textContent='MANIMALA, KOTTAYAM · IST '+new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit'})}clk();setInterval(clk,20000);
 /* living canvas */
 (function(){var cv=$('#lc'),g=cv.getContext('2d'),W=1,H=1,S=19,N=[],R=[],live=0,run=0,mx=-999,my=-999,dn=0;
 function rs(){var r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2),i,j,cx,cy,ox,oy;cv.width=r.width*d;cv.height=r.height*d;g.setTransform(d,0,0,d,0,0);W=r.width;H=r.height;N=[];cx=Math.floor(W/S);cy=Math.floor(H/S);ox=(W-(cx-1)*S)/2;oy=(H-(cy-1)*S)/2;for(j=0;j<cy;j++)for(i=0;i<cx;i++)N.push({x:ox+i*S,y:oy+j*S,a:Math.random()*6.283,w:0})}
@@ -464,10 +496,13 @@ g.lineCap='round';g.lineWidth=1.6+near*1.6;g.strokeStyle=hot>.18?'rgba(242,106,7
 if(hot>.3){g.fillStyle='#f3f1ec';g.beginPath();g.arc(nd.x+c,nd.y+k,1.2+hot*1.2,0,6.283);g.fill()}}
 if(m){g.lineWidth=1.2;g.strokeStyle='rgba(243,241,236,.8)';g.beginPath();g.arc(mx,my,dn?14:6,0,6.283);g.stroke()}
 requestAnimationFrame(f)}})();
+/* portrait tilt */
+(function(){var f=$('#pf'),im=$('#pfimg');if(!f||!matchMedia('(hover:hover)').matches)return;
+f.addEventListener('pointermove',function(e){var r=f.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;f.style.transform='perspective(1000px) rotateY('+(x*7)+'deg) rotateX('+(-y*6)+'deg)';im.style.transform='scale(1.05) translate('+(x*-6)+'px,'+(y*-5)+'px)'});
+f.addEventListener('pointerleave',function(){f.style.transform='';im.style.transform=''})})();
 /* nav scroll */
-(function(){$$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href').slice(1),t=document.getElementById(id);if(!t)return;e.preventDefault();var y=id=='home'?0:t.getBoundingClientRect().top+scrollY+(parseFloat(getComputedStyle(t).paddingTop)||0)-110;scrollTo({top:Math.max(0,y),behavior:'smooth'})})})})();
-/* resume download: shown only when resume.pdf exists next to index.html */
-(function(){var bt=$('#dl');if(!bt||!window.fetch)return;fetch('resume.pdf',{method:'HEAD'}).then(function(r){if(r.ok)bt.style.display='inline-flex'}).catch(function(){})})();
+(function(){var OFF=84,tm;function y(id,t){return id=='home'?0:Math.max(0,t.getBoundingClientRect().top+scrollY+(parseFloat(getComputedStyle(t).paddingTop)||0)-OFF)}
+$$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href').slice(1),t=document.getElementById(id);if(!t)return;e.preventDefault();scrollTo({top:y(id,t),behavior:'smooth'});clearTimeout(tm);tm=setTimeout(function(){var d=y(id,t)-scrollY;if(Math.abs(d)>3)scrollTo({top:y(id,t),behavior:'auto'})},1100)})})})();
 /* cursor */
 var c=$('#cur'),x=0,y=0,cx=0,cy=0,a=45,sc=1,hv=0,ht=null,cw=30,ch=30,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 if(matchMedia('(hover:hover)').matches){addEventListener('mousemove',function(e){x=e.clientX;y=e.clientY;c.style.opacity=1});document.documentElement.addEventListener('mouseleave',function(){c.style.opacity=0});
