@@ -16,7 +16,6 @@ A dark, editorial single-page portfolio with a custom cursor, scroll-driven sect
 
 </div>
 
-![Home](assets/screenshots/home.jpg)
 
 ## About
 
@@ -35,22 +34,6 @@ This repository holds my personal portfolio. It introduces who I am, what I work
 - **Responsive and accessible**: keyboard-friendly cards and dialogs, visible focus styles, reduced-motion support and semantic landmarks.
 - **Fast by default**: no framework, no build, and animations that pause when they scroll out of view.
 
-## Preview
-
-| About | Projects |
-| --- | --- |
-| ![About](assets/screenshots/about.jpg) | ![Projects](assets/screenshots/projects.jpg) |
-
-| Project details | Certificates |
-| --- | --- |
-| ![Project details](assets/screenshots/project-details.jpg) | ![Certificates](assets/screenshots/certificates.jpg) |
-
-<details>
-<summary>Mobile view</summary>
-
-<img src="assets/screenshots/mobile.jpg" alt="Mobile view" width="280">
-
-</details>
 
 ## Sections
 
