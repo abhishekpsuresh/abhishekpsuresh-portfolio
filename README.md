@@ -16,6 +16,7 @@ A dark, editorial single-page portfolio with a custom cursor, scroll-driven sect
 
 </div>
 
+![Home](assets/screenshots/home.jpg)
 
 ## About
 
@@ -30,12 +31,28 @@ This repository holds my personal portfolio. It introduces who I am, what I work
 - **Project cards** that open a large details card with a 360° spin, with the overview, features, tools and GitHub links.
 - **Hero portrait** on a studio-style background, inside a targeting-reticle frame with a scanning line.
 - **Living canvas** card in the About section that reacts to the pointer.
-- **Contact form** with name, email and message, validation, a spam trap and two ways to deliver (see below).
+- **Contact form** with name, email and message, validation, a spam trap and delivery to your inbox through Web3Forms (see below).
 - **Certificates and achievements** cards with titles, issuers, dates and links to LinkedIn.
 - **Resume** section with the full resume on the page and a one-click PDF download.
 - **Responsive and accessible**: keyboard-friendly cards and dialogs, visible focus styles, reduced-motion support and semantic landmarks.
 - **Fast by default**: no framework, no build, and animations that pause when they scroll out of view.
 
+## Preview
+
+| About | Projects |
+| --- | --- |
+| ![About](assets/screenshots/about.jpg) | ![Projects](assets/screenshots/projects.jpg) |
+
+| Project details | Certificates |
+| --- | --- |
+| ![Project details](assets/screenshots/project-details.jpg) | ![Certificates](assets/screenshots/certificates.jpg) |
+
+<details>
+<summary>Mobile view</summary>
+
+<img src="assets/screenshots/mobile.jpg" alt="Mobile view" width="280">
+
+</details>
 
 ![Contact form](assets/screenshots/contact.jpg)
 
@@ -124,19 +141,32 @@ Use this only if you do not use Vercel's own GitHub integration, otherwise you w
 
 ## Contact form
 
-The form in the Contact section collects a name, email address and message. It validates every field, limits the message to 1000 characters and includes a hidden spam trap field.
+The form collects a name, email address and message. It validates every field, limits the message to 1000 characters and includes a hidden spam trap field. Messages are delivered by [Web3Forms](https://web3forms.com), which forwards each one to your inbox. There is no server and no code to write.
 
-- **Default (no setup):** Send message opens the visitor's email app with a ready-to-send message addressed to you.
-- **Direct delivery (optional):** connect a free form service so messages reach your inbox without the email app step.
-  1. Create a form at [Formspree](https://formspree.io) or [Web3Forms](https://web3forms.com) and copy its endpoint URL (and the access key for Web3Forms).
-  2. In `index.html`, add this just above the last `<script>` tag:
-     ```html
-     <script>
-       window.FORM_ENDPOINT = "https://formspree.io/f/your-form-id";
-       window.FORM_ACCESS_KEY = ""; // only needed for Web3Forms
-     </script>
-     ```
-  3. Commit and push. The form posts `name`, `email` and `message` as JSON, and falls back to the email app if the request fails.
+### Delivery setup (already done for this site)
+
+1. Go to [web3forms.com](https://web3forms.com), enter `abhishekpsuresh206@gmail.com` and get your free **Access Key** by email.
+2. In `index.html`, find this block just above the main script near the end of the file and paste the key between the quotes of `FORM_ACCESS_KEY`:
+   ```html
+   <script>
+     window.FORM_ENDPOINT = "https://api.web3forms.com/submit";
+     window.FORM_ACCESS_KEY = "";
+   </script>
+   ```
+3. Commit and push:
+   ```bash
+   git add .
+   git commit -m "Enable contact form delivery"
+   git push
+   ```
+
+Web3Forms designs the access key to sit in public page code, and it only delivers to the email address you registered.
+
+### How it behaves
+
+- **Key set and the hosted site:** the message is sent to Web3Forms and arrives in your inbox. The visitor sees a thank-you message, and your inbox shows who wrote to you, with the visitor's address as the reply address.
+- **No key yet, or the request fails:** the form opens the visitor's email app with the message ready to send, so a visitor can always reach you.
+- **Other services:** to use Formspree or a similar service, set `FORM_ENDPOINT` to its URL and leave `FORM_ACCESS_KEY` empty.
 
 ## CI/CD pipeline
 

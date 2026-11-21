@@ -416,6 +416,11 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 <div class="pmwrap" id="pm"><div class="pmbg" id="pmbg"></div><div class="pm" role="dialog" aria-modal="true" aria-labelledby="pmt"><button class="pmx" id="pmx" aria-label="Close project details">✕</button><div class="pmi" id="pmc"></div></div></div>
 
 <script>
+/* Contact form delivery: paste your Web3Forms access key between the quotes (see README). */
+window.FORM_ENDPOINT="https://api.web3forms.com/submit";
+window.FORM_ACCESS_KEY="7ea680ff-20c6-455d-9293-10d06562efa5";
+</script>
+<script>
 (function(){
 var $=function(s,c){return(c||document).querySelector(s)},$$=function(s,c){return[].slice.call((c||document).querySelectorAll(s))};
 window.addEventListener('load',function(){setTimeout(function(){$('#load').classList.add('out')},1200)});
@@ -541,9 +546,11 @@ function say(t,k){st.textContent=t;st.className=k||''}
 function mail(d){var body='Hi Abhishek,\n\n'+d.message+'\n\n'+d.name+'\n'+d.email,sub='[Portfolio] Message from '+d.name,h='mailto:'+TO+'?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(body.slice(0,1500)),a=document.createElement('a');a.href=h;document.body.appendChild(a);a.click();a.remove();say('Your email app should open with the message ready to send. If nothing opens, write to '+TO+'.','ok')}
 f.addEventListener('submit',function(e){e.preventDefault();if($('#cweb').value)return;if(!check()){say('Please fix the highlighted fields.','bad');return}
 var d={name:nm.value.trim(),email:em.value.trim(),message:ms.value.trim()};
-if(!EP){mail(d);return}
-bt.disabled=true;say('Sending…','');if(KEY)d.access_key=KEY;
-fetch(EP,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)}).then(function(r){if(!r.ok)throw 0;f.reset();ct.textContent='0 / 1000';say('Thank you, your message was sent. I will reply by email.','ok')}).catch(function(){mail(d)}).then(function(){bt.disabled=false})});
+EP=window.FORM_ENDPOINT||'';KEY=window.FORM_ACCESS_KEY||'';
+if(!EP||(/web3forms/i.test(EP)&&!KEY)){mail(d);return}
+bt.disabled=true;say('Sending…','');
+if(KEY){d.access_key=KEY;d.subject='New message from your portfolio';d.from_name='Portfolio contact form'}
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok||j.success===false)throw 0;f.reset();ct.textContent='0 / 1000';say('Thank you, your message was sent. I will reply by email.','ok')})}).catch(function(){mail(d)}).then(function(){bt.disabled=false})});
 ['input','change'].forEach(function(ev){f.addEventListener(ev,function(e){if(e.target.getAttribute('aria-invalid')=='true')check()})})})();
 /* nav scroll */
 (function(){var OFF=84,tm;function y(id,t){return id=='home'?0:Math.max(0,t.getBoundingClientRect().top+scrollY+(parseFloat(getComputedStyle(t).paddingTop)||0)-OFF)}
