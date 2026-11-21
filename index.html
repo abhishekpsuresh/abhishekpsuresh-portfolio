@@ -64,7 +64,7 @@ header>*{pointer-events:auto}
 .dot{width:7px;height:7px;border-radius:50%;background:#ff4a2a;animation:pl 1.8s infinite}
 @keyframes pl{0%{box-shadow:0 0 0 0 rgba(255,74,42,.6)}100%{box-shadow:0 0 0 9px rgba(255,74,42,0)}}
 .clock{position:absolute;top:calc(84px + env(safe-area-inset-top,0px));right:clamp(20px,5vw,60px);font-size:13px;color:var(--mut);letter-spacing:.1em}
-#home h1{font-size:clamp(46px,8.4vw,120px);position:relative}
+#home h1{font-size:clamp(48px,7.4vw,112px);position:relative}
 #home .role{font-size:clamp(20px,2.6vw,34px);font-weight:500;color:var(--ac);margin:26px 0 18px;letter-spacing:-.02em}
 .btns{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:30px}
 .btn{display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:99px;font-size:16px;font-weight:500;border:1px solid #2c2c2e;background:var(--bg2);transition:.3s}
@@ -121,7 +121,7 @@ header>*{pointer-events:auto}
 .ph{display:flex;justify-content:space-between;align-items:center;gap:10px}.bd{display:inline-flex;align-items:center;gap:8px;font:500 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--ac);border:1px solid #4a2018;background:rgba(40,14,9,.6);padding:5px 12px;border-radius:99px}.bd i,.lbl .bd i{display:block;width:7px;height:7px;border-radius:50%;background:var(--ac);animation:pl 1.8s infinite}
 .lcard::after{content:"";position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(transparent,#0d0a0a 85%);pointer-events:none}.lt,.lb{z-index:2}
 .stmt{margin-bottom:50px}
-.abg{display:grid;grid-template-columns:1fr 340px;gap:clamp(30px,6vw,90px);align-items:center;margin:0 0 80px}
+.abg{margin:0 0 80px}
 .abt .sub{font-size:19px;line-height:1.75;color:#b4b4b0;margin:0 0 1.3em;max-width:760px}
 .pf{position:relative;margin:0;width:100%;max-width:340px;aspect-ratio:340/450;border-radius:200px 200px 22px 22px;overflow:hidden;background:radial-gradient(ellipse 80% 55% at 50% 100%,rgba(214,58,28,.6),transparent 70%),#141416;border:1px solid #4a2a22;box-shadow:0 30px 90px rgba(214,58,28,.2),inset 0 0 0 6px #0b0b0c;transition:transform .25s ease-out,box-shadow .4s;will-change:transform;justify-self:end}
 .pf:hover{box-shadow:0 30px 110px rgba(214,58,28,.35),inset 0 0 0 6px #0b0b0c}
@@ -134,6 +134,34 @@ header>*{pointer-events:auto}
 .cg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}.cg.two{grid-template-columns:repeat(2,1fr)}.cc{display:flex;flex-direction:column;gap:10px;min-height:300px;background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:26px;transition:background .3s,border-color .3s,transform .4s}.cc:hover{background:#161618;border-color:#5a2a20;transform:translateY(-5px)}.cc .cn{font:400 13px "JetBrains Mono",ui-monospace,monospace;color:var(--ac);letter-spacing:.16em}.cc h3{font-size:clamp(19px,1.7vw,24px);line-height:1.2;font-weight:500;letter-spacing:-.025em;transition:color .3s}.cc .meta{font:400 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);line-height:1.6}.cc:hover h3{color:var(--ac)}.cc p{margin:0;font-size:15px}.cc .go{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;display:flex;justify-content:space-between;font:400 13px "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em}.cc .go span{color:var(--ac);font-size:16px}
 @media(max-width:900px){.cg{grid-template-columns:1fr 1fr}}@media(max-width:560px){.cg,.cg.two{grid-template-columns:1fr}}
 #home .wrap{width:100%}
+.hf{position:absolute;right:clamp(34px,6.5vw,110px);top:50%;transform:translateY(-48%);width:min(30vw,400px,51vh);aspect-ratio:4/5;z-index:1;animation:hcin 1.2s .5s both cubic-bezier(.2,.7,.2,1)}
+@keyframes hcin{from{opacity:0;scale:.92}}
+.hfo{position:absolute;inset:0;border:1.5px solid rgba(242,106,78,.5);border-radius:20px;transform:translate(16px,16px)}
+.hfi{position:absolute;inset:0;border-radius:20px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 70px rgba(214,58,28,.22)}
+.hfi img{display:block;width:100%;height:100%;object-fit:cover}
+.scan{position:absolute;left:0;right:0;top:0;height:20%;background:linear-gradient(transparent,rgba(242,106,78,.2) 70%,rgba(255,170,140,.45));border-bottom:1px solid rgba(255,190,160,.8);mix-blend-mode:screen;animation:scan 4.6s ease-in-out infinite}
+@keyframes scan{from{transform:translateY(-100%)}to{transform:translateY(500%)}}
+.hf .c{position:absolute;width:28px;height:28px;border:2.5px solid #f26a4e;transition:all .4s cubic-bezier(.2,.7,.2,1)}
+.hf .tl{top:-11px;left:-11px;border-right:0;border-bottom:0;border-radius:9px 0 0 0}.hf .tr{top:-11px;right:-11px;border-left:0;border-bottom:0;border-radius:0 9px 0 0}.hf .bl{bottom:-11px;left:-11px;border-right:0;border-top:0;border-radius:0 0 0 9px}.hf .br{bottom:-11px;right:-11px;border-left:0;border-top:0;border-radius:0 0 9px 0}
+.hf:hover .tl{top:-5px;left:-5px}.hf:hover .tr{top:-5px;right:-5px}.hf:hover .bl{bottom:-5px;left:-5px}.hf:hover .br{bottom:-5px;right:-5px}
+.hf .tag{position:absolute;left:16px;top:16px;font:500 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.18em;padding:6px 11px;border-radius:99px;background:rgba(11,11,12,.66);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.16);color:#fff}
+#home .lead{max-width:min(520px,46vw)}
+@media(max-width:1000px){.hf{position:relative;right:auto;top:auto;transform:none;margin:96px auto 26px;width:min(300px,70vw)}#home .lead{max-width:none}}
+.cf{display:grid;grid-template-columns:1fr 1.5fr;gap:clamp(28px,5vw,70px);background:var(--bg2);border:1px solid var(--line);border-radius:22px;padding:clamp(24px,4vw,52px);margin:70px 0 0}
+.cfi h3{font-size:clamp(26px,3vw,38px);font-weight:500;letter-spacing:-.03em;margin-bottom:12px}.cfi p{font-size:16px}
+.cfi ul{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:14px}.cfi li{display:grid;gap:2px;font-size:15px;border-top:1px solid var(--line);padding-top:12px}.cfi li span{font:400 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}.cfi a{color:var(--fg)}
+#cform{display:grid;gap:18px}.row2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fgrp{display:grid;gap:8px;position:relative}.fgrp label{font:400 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}.fgrp label i{font-style:normal;color:var(--ac)}
+.fgrp input,.fgrp select,.fgrp textarea{width:100%;background:#0e0e10;border:1px solid #2c2c2e;border-radius:12px;color:var(--fg);padding:14px 16px;font:400 16px "Inter Tight",system-ui,sans-serif;transition:border-color .25s,box-shadow .25s}
+.fgrp textarea{resize:vertical;min-height:150px}
+.fgrp input:focus,.fgrp select:focus,.fgrp textarea:focus{outline:none;border-color:var(--ac);box-shadow:0 0 0 3px rgba(242,106,78,.18)}
+.fgrp [aria-invalid="true"]{border-color:#e5484d}
+.err{color:#ff8a80;font-size:14px}.err:empty{display:none}
+.cnt{position:absolute;right:2px;top:2px;font:400 11px "JetBrains Mono",ui-monospace,monospace;color:var(--mut)}
+.hpot{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cact{display:flex;align-items:center;gap:18px;flex-wrap:wrap}.cact p{margin:0;font-size:15px;max-width:380px}.cact p.ok{color:#9be7a8}.cact p.bad{color:#ff8a80}
+.btn[disabled]{opacity:.6;pointer-events:none}
+@media(max-width:900px){.cf{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
 /* approach rows */
 .rows{margin-top:50px;border-top:1px solid var(--line)}
 .row{display:grid;grid-template-columns:70px 1fr 1.3fr;gap:24px;padding:42px 0;border-bottom:1px solid var(--line);align-items:start;opacity:.45;transition:opacity .4s,padding .4s}
@@ -215,9 +243,10 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 <main>
 <section id="home" data-n="Hero">
 <div class="ghost" aria-hidden="true">APS</div>
+<div class="hf" role="img" aria-label="Portrait of Abhishek P Suresh"><div class="hfo"></div><div class="hfi"><img id="hfimg" alt="" width="900" height="1125" decoding="async" src="assets/abhishek.webp"><i class="scan"></i></div><b class="c tl"></b><b class="c tr"></b><b class="c bl"></b><b class="c br"></b><span class="tag">APS</span></div>
 <div class="clock mono" id="clock" aria-hidden="true"></div>
 <div class="wrap">
-<h1 class="rv">Abhishek <span class="ac">P Suresh</span></h1>
+<h1 class="rv">Abhishek<br><span class="ac">P Suresh</span></h1>
 <div class="role rv">Cybersecurity Student</div>
 <p class="lead rv">A BCA student exploring the intersection of cloud security, ethical hacking, DevOps and intelligent IoT systems, and building secure real-world applications one system at a time.</p>
 <div class="btns rv"><a class="btn pri" href="#projects">Explore my work →</a><a class="btn" href="#contact">Let’s connect</a><a class="tl-link" href="#resume">Resume <s>→</s></a></div>
@@ -230,7 +259,7 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 <div class="lbl rv"><b>01</b><i></i>Who I am</div>
 <p class="stmt rv">Curious by nature, security-minded by design. I’m a BCA student passionate about cybersecurity, infrastructure security, cloud technologies, and building secure real-world applications.</p>
 <div class="abg rv"><div class="abt"><p class="sub">My foundation is a Computer Applications degree at Marian College Kuttikkanam, where cloud security, ethical hacking and IoT security shape how I look at every system: each service, device and login is something to understand before it can be protected. I learn best by doing, so classroom ideas quickly become labs, scans, small applications and containers that I can break, fix and explain.</p><p class="sub">Beyond the classroom, hands-on industry training has taken me through AWS and Azure environments, Linux server hardening and automated deployments with Ansible and CI/CD, while a Microsoft Cybersecurity Analyst certification added the enterprise view of threats, identity and compliance. A top-four finish in a network design and implementation event, and a bus-booking platform built from scratch, showed me how design choices in networks and code decide how secure a system really is.</p><p class="sub">Right now I am aiming for roles in cloud security, penetration testing and security operations, where I can keep learning on real infrastructure while building the habits of careful testing and clear reporting.</p></div>
-<figure class="pf" id="pf"><img id="pfimg" alt="Portrait of Abhishek P Suresh" width="680" height="900" decoding="async" loading="lazy" src="assets/abhishek.webp"><figcaption><b>Abhishek P Suresh</b><span>Cybersecurity Student</span></figcaption></figure></div>
+</div>
 <div class="stats rv"><div><b>4</b><span>Focus areas</span></div><div><b>4</b><span>Featured projects</span></div><div><b>6</b><span>Toolkits</span></div><div><b>7.95</b><span>CGPA</span></div></div>
 <div class="lc2 rv"><div class="lcard" id="lcard"><canvas id="lc" aria-hidden="true"></canvas><div class="lt mono"><span class="dot"></span>LIVING CANVAS</div><div class="lb"><b>Abhishek P Suresh</b><small>CYBERSECURITY &amp; CLOUD SECURITY</small><em>MOVE TO ALIGN · HOLD TO SWIRL · CLICK FOR A WAVE</em></div></div><div><h3>What I enjoy building</h3><p>Security work where a design, a configuration and a test finally line up, from locked-down cloud accounts to IoT devices that prove who they are.</p><h3>Where I’m heading</h3><p>A career securing cloud and IoT infrastructure, while staying hands-on with the tools and the systems behind them.</p></div></div>
 <h2 class="rv" style="margin-top:110px">How I think about <span class="ac">security.</span></h2>
@@ -372,6 +401,13 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 <div><div class="lbl">Navigate</div><ul><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#skills">Skills</a></li><li><a href="#projects">Projects</a></li><li><a href="#experience">Experience</a></li><li><a href="#education">Education</a></li><li><a href="#certificates">Certificates</a></li><li><a href="#achievements">Achievements</a></li><li><a href="#resume">Resume</a></li></ul></div>
 <div><div class="lbl">Elsewhere</div><ul><li><a href="https://github.com/abhishekpsuresh" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li><li><a href="https://www.linkedin.com/in/abhishekpsuresh0210/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li><li><a href="mailto:abhishekpsuresh206@gmail.com">Email</a></li></ul></div>
 </div>
+<div class="cf rv"><div class="cfi"><h3>Send me a message</h3><p>Tell me about the role, project or question in a few lines and I will reply by email.</p><ul><li><span>Email</span><a href="mailto:abhishekpsuresh206@gmail.com">abhishekpsuresh206@gmail.com</a></li><li><span>Based in</span>Manimala, Kanjirappally, Kottayam</li></ul></div>
+<form id="cform" novalidate>
+<div class="row2"><div class="fgrp"><label for="cname">Your name <i>*</i></label><input id="cname" name="name" type="text" autocomplete="name" maxlength="80" placeholder="Jane Doe" required><span class="err"></span></div><div class="fgrp"><label for="cemail">Email address <i>*</i></label><input id="cemail" name="email" type="email" autocomplete="email" maxlength="120" placeholder="you@example.com" required><span class="err"></span></div></div>
+<div class="fgrp"><label for="cmsg">Message <i>*</i></label><textarea id="cmsg" name="message" rows="6" maxlength="1000" placeholder="Tell me a little about what you need…" required></textarea><span class="err"></span><span class="cnt" id="ccnt">0 / 1000</span></div>
+<div class="hpot" aria-hidden="true"><label>Leave this empty <input type="text" name="website" id="cweb" tabindex="-1" autocomplete="off"></label></div>
+<div class="cact"><button class="btn pri" type="submit" id="csend">Send message →</button><p id="cstat" role="status" aria-live="polite"></p></div>
+</form></div>
 <div class="name" aria-hidden="true">Abhishek<br>P Suresh</div>
 <div class="bar"><span>© <span id="yr">2026</span> Abhishek P Suresh. Building, exploring and securing the digital world.</span><button id="top">Back to top ↑</button></div>
 </div>
@@ -475,7 +511,7 @@ D.innerHTML=S.map(function(s){return'<a href="#'+s.id+'"></a>'}).join('');
 var so=new IntersectionObserver(function(e){e.forEach(function(x){if(!x.isIntersecting)return;var i=S.indexOf(x.target);$$('#dots a').forEach(function(a,j){a.classList.toggle('on',j==i)});links.forEach(function(a){var h=a.getAttribute('href').slice(1);var m=x.target.id==h||(h=='skills'&&x.target.id=='skills')||(h=='about'&&x.target.id=='what')||(h=='projects'&&0)||(h=='education'&&x.target.id=='build');a.classList.toggle('on',x.target.id==h)});tag.textContent=('0'+(i+1)).slice(-2)+' '+x.target.dataset.n;tag.style.opacity=i?1:0})},{rootMargin:'-45% 0px -50% 0px'});S.forEach(function(s){so.observe(s)});
 var b=$('#burger'),pl=$('#pill');b.onclick=function(){b.setAttribute('aria-expanded',pl.classList.toggle('open'))};links.forEach(function(a){a.onclick=function(){pl.classList.remove('open')}});
 $('#top').onclick=function(){scrollTo({top:0,behavior:'smooth'})};$('#yr').textContent=new Date().getFullYear();
-function clk(){$('#clock').textContent='MANIMALA, KOTTAYAM · IST '+new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit'})}clk();setInterval(clk,20000);
+function clk(){$('#clock').textContent='IST '+new Date().toLocaleTimeString('en-GB',{timeZone:'Asia/Kolkata',hour:'2-digit',minute:'2-digit'})}clk();setInterval(clk,20000);
 /* living canvas */
 (function(){var cv=$('#lc'),g=cv.getContext('2d'),W=1,H=1,S=19,N=[],R=[],live=0,run=0,mx=-999,my=-999,dn=0;
 function rs(){var r=cv.getBoundingClientRect(),d=Math.min(devicePixelRatio||1,2),i,j,cx,cy,ox,oy;cv.width=r.width*d;cv.height=r.height*d;g.setTransform(d,0,0,d,0,0);W=r.width;H=r.height;N=[];cx=Math.floor(W/S);cy=Math.floor(H/S);ox=(W-(cx-1)*S)/2;oy=(H-(cy-1)*S)/2;for(j=0;j<cy;j++)for(i=0;i<cx;i++)N.push({x:ox+i*S,y:oy+j*S,a:Math.random()*6.283,w:0})}
@@ -496,10 +532,19 @@ g.lineCap='round';g.lineWidth=1.6+near*1.6;g.strokeStyle=hot>.18?'rgba(242,106,7
 if(hot>.3){g.fillStyle='#f3f1ec';g.beginPath();g.arc(nd.x+c,nd.y+k,1.2+hot*1.2,0,6.283);g.fill()}}
 if(m){g.lineWidth=1.2;g.strokeStyle='rgba(243,241,236,.8)';g.beginPath();g.arc(mx,my,dn?14:6,0,6.283);g.stroke()}
 requestAnimationFrame(f)}})();
-/* portrait tilt */
-(function(){var f=$('#pf'),im=$('#pfimg');if(!f||!matchMedia('(hover:hover)').matches)return;
-f.addEventListener('pointermove',function(e){var r=f.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;f.style.transform='perspective(1000px) rotateY('+(x*7)+'deg) rotateX('+(-y*6)+'deg)';im.style.transform='scale(1.05) translate('+(x*-6)+'px,'+(y*-5)+'px)'});
-f.addEventListener('pointerleave',function(){f.style.transform='';im.style.transform=''})})();
+/* contact form */
+(function(){var f=$('#cform');if(!f)return;var EP=window.FORM_ENDPOINT||'',KEY=window.FORM_ACCESS_KEY||'',TO='abhishekpsuresh206@gmail.com',nm=$('#cname'),em=$('#cemail'),ms=$('#cmsg'),ct=$('#ccnt'),st=$('#cstat'),bt=$('#csend');
+ms.addEventListener('input',function(){ct.textContent=ms.value.length+' / 1000'});
+function bad(el,t){el.parentNode.querySelector('.err').textContent=t||'';el.setAttribute('aria-invalid',t?'true':'false');return !t}
+function check(){var a=bad(nm,nm.value.trim().length<2?'Please enter your name.':''),b=bad(em,/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(em.value.trim())?'':'Please enter a valid email address.'),c=bad(ms,ms.value.trim().length<10?'Please write at least a few words (10 characters).':'');if(!a)nm.focus();else if(!b)em.focus();else if(!c)ms.focus();return a&&b&&c}
+function say(t,k){st.textContent=t;st.className=k||''}
+function mail(d){var body='Hi Abhishek,\n\n'+d.message+'\n\n'+d.name+'\n'+d.email,sub='[Portfolio] Message from '+d.name,h='mailto:'+TO+'?subject='+encodeURIComponent(sub)+'&body='+encodeURIComponent(body.slice(0,1500)),a=document.createElement('a');a.href=h;document.body.appendChild(a);a.click();a.remove();say('Your email app should open with the message ready to send. If nothing opens, write to '+TO+'.','ok')}
+f.addEventListener('submit',function(e){e.preventDefault();if($('#cweb').value)return;if(!check()){say('Please fix the highlighted fields.','bad');return}
+var d={name:nm.value.trim(),email:em.value.trim(),message:ms.value.trim()};
+if(!EP){mail(d);return}
+bt.disabled=true;say('Sending…','');if(KEY)d.access_key=KEY;
+fetch(EP,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)}).then(function(r){if(!r.ok)throw 0;f.reset();ct.textContent='0 / 1000';say('Thank you, your message was sent. I will reply by email.','ok')}).catch(function(){mail(d)}).then(function(){bt.disabled=false})});
+['input','change'].forEach(function(ev){f.addEventListener(ev,function(e){if(e.target.getAttribute('aria-invalid')=='true')check()})})})();
 /* nav scroll */
 (function(){var OFF=84,tm;function y(id,t){return id=='home'?0:Math.max(0,t.getBoundingClientRect().top+scrollY+(parseFloat(getComputedStyle(t).paddingTop)||0)-OFF)}
 $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href').slice(1),t=document.getElementById(id);if(!t)return;e.preventDefault();scrollTo({top:y(id,t),behavior:'smooth'});clearTimeout(tm);tm=setTimeout(function(){var d=y(id,t)-scrollY;if(Math.abs(d)>3)scrollTo({top:y(id,t),behavior:'auto'})},1100)})})})();
@@ -507,7 +552,7 @@ $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){va
 var c=$('#cur'),x=0,y=0,cx=0,cy=0,a=45,sc=1,hv=0,ht=null,cw=30,ch=30,rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
 if(matchMedia('(hover:hover)').matches){addEventListener('mousemove',function(e){x=e.clientX;y=e.clientY;c.style.opacity=1});document.documentElement.addEventListener('mouseleave',function(){c.style.opacity=0});
 (function f(){var tx=x,ty=y,tw=hv?64:30,th=tw;if(hv&&ht){var r=ht.getBoundingClientRect();tx=r.left+r.width/2;ty=r.top+r.height/2;tw=Math.min(r.width+14,innerWidth-16);th=Math.min(r.height+14,innerHeight-16)}cx+=(tx-cx)*(hv?.22:.28);cy+=(ty-cy)*(hv?.22:.28);cw+=(tw-cw)*.2;ch+=(th-ch)*.2;if(hv||rm){var t=Math.round(a/180)*180;a+=(t-a)*.25}else a+=2.2;c.style.width=cw+'px';c.style.height=ch+'px';c.style.transform='translate('+(cx-cw/2)+'px,'+(cy-ch/2)+'px) rotate('+a+'deg)';requestAnimationFrame(f)})();
-addEventListener('mouseover',function(e){ht=e.target.closest('a,button,.btn,.chips span,.card,.row,.ti,.pc div,.stats div,.rcard li,.rcard .jb,.pjc');hv=ht?1:0;c.classList.toggle('h',!!hv)})}
+addEventListener('mouseover',function(e){ht=e.target.closest('a,button,.btn,.chips span,.card,.row,.ti,.pc div,.stats div,.rcard li,.rcard .jb,.pjc,input,textarea,select');hv=ht?1:0;c.classList.toggle('h',!!hv)})}
 })();
 </script>
 </body>

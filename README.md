@@ -28,18 +28,22 @@ This repository holds my personal portfolio. It introduces who I am, what I work
 - **Custom cursor** that spins while idle and stretches into corner brackets around links, buttons and cards.
 - **Scroll-driven "What I do"** section that pins to the screen and steps through four focus areas, each with a technical detail popup.
 - **Project cards** that open a large details card with a 360° spin, with the overview, features, tools and GitHub links.
+- **Hero portrait** on a studio-style background, inside a targeting-reticle frame with a scanning line.
 - **Living canvas** card in the About section that reacts to the pointer.
+- **Contact form** with name, email and message, validation, a spam trap and two ways to deliver (see below).
 - **Certificates and achievements** cards with titles, issuers, dates and links to LinkedIn.
 - **Resume** section with the full resume on the page and a one-click PDF download.
 - **Responsive and accessible**: keyboard-friendly cards and dialogs, visible focus styles, reduced-motion support and semantic landmarks.
 - **Fast by default**: no framework, no build, and animations that pause when they scroll out of view.
 
 
+![Contact form](assets/screenshots/contact.jpg)
+
 ## Sections
 
 | # | Section | What it shows |
 | --- | --- | --- |
-| 01 | Who I am | Introduction, background, stats and a portrait card |
+| 01 | Who I am | Introduction, background, stats and the living canvas card |
 | 02 | What I do | Cybersecurity, cloud security, IoT security, DevOps |
 | 03 | Technical arsenal | Tools and technologies grouped by area |
 | 04 | Projects | SecureID-IoT, Smart Bus System, Python To-Do App with Docker, Medicine Reminder System |
@@ -49,7 +53,7 @@ This repository holds my personal portfolio. It introduces who I am, what I work
 | 08 | Achievements | Event rank and an educational programme |
 | 09–12 | How I work, Current focus, Why work with me, Let's talk | Working approach and collaboration |
 | 13 | Resume | Full resume and PDF download |
-| 14 | Contact | Email, LinkedIn, GitHub and location |
+| 14 | Contact | Message form, email, LinkedIn, GitHub and location |
 
 ## Tech stack
 
@@ -65,7 +69,7 @@ portfolio/
 ├── index.html                  # The whole site: markup, styles and scripts
 ├── resume.pdf                  # File behind the Download resume button
 ├── assets/
-│   ├── abhishek.webp           # Cut-out portrait used in the About section
+│   ├── abhishek.webp           # Studio-style portrait used in the hero
 │   └── screenshots/            # Images used in this README
 ├── scripts/
 │   └── check-links.js          # Fails the build on broken in-page links
@@ -118,6 +122,22 @@ Use this only if you do not use Vercel's own GitHub integration, otherwise you w
 2. Create a token at [vercel.com/account/tokens](https://vercel.com/account/tokens).
 3. In GitHub, open **Settings → Secrets and variables → Actions** and add `VERCEL_TOKEN`, `VERCEL_ORG_ID` and `VERCEL_PROJECT_ID`.
 
+## Contact form
+
+The form in the Contact section collects a name, email address and message. It validates every field, limits the message to 1000 characters and includes a hidden spam trap field.
+
+- **Default (no setup):** Send message opens the visitor's email app with a ready-to-send message addressed to you.
+- **Direct delivery (optional):** connect a free form service so messages reach your inbox without the email app step.
+  1. Create a form at [Formspree](https://formspree.io) or [Web3Forms](https://web3forms.com) and copy its endpoint URL (and the access key for Web3Forms).
+  2. In `index.html`, add this just above the last `<script>` tag:
+     ```html
+     <script>
+       window.FORM_ENDPOINT = "https://formspree.io/f/your-form-id";
+       window.FORM_ACCESS_KEY = ""; // only needed for Web3Forms
+     </script>
+     ```
+  3. Commit and push. The form posts `name`, `email` and `message` as JSON, and falls back to the email app if the request fails.
+
 ## CI/CD pipeline
 
 `.github/workflows/ci-cd.yml` runs on every push to `main` and on every pull request.
@@ -137,7 +157,7 @@ Use this only if you do not use Vercel's own GitHub integration, otherwise you w
 | Certificates and achievements | The `CERTS` and `ACH` arrays in the script |
 | Services and technical details | The `SV` and `TD` arrays in the script |
 | Skill groups | The `K` array in the script |
-| Portrait | Replace `assets/abhishek.webp` with a transparent WebP or PNG of the same name |
+| Portrait | Replace `assets/abhishek.webp` with a 4:5 portrait image of the same name |
 | Resume | Replace `resume.pdf`, keeping the file name |
 
 ## Privacy note
