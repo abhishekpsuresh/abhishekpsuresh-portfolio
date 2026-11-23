@@ -66,7 +66,7 @@ This repository holds my personal portfolio. It introduces who I am, what I work
 | 04 | Projects | SecureID-IoT, Smart Bus System, Python To-Do App with Docker, Medicine Reminder System |
 | 05 | Experience | Internship, achievements and training timeline |
 | 06 | Education | BCA, Higher Secondary and SSLC |
-| 07 | Certificates | Seven certificates, each linked to LinkedIn |
+| 07 | Certificates | Eight certificates, with LinkedIn links where available |
 | 08 | Achievements | Event rank and an educational programme |
 | 09–12 | How I work, Current focus, Why work with me, Let's talk | Working approach and collaboration |
 | 13 | Resume | Full resume and PDF download |
