@@ -27,12 +27,12 @@ section{padding:clamp(90px,13vw,170px) 0;position:relative}
 h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.045em;line-height:.98}
 h2{font-size:clamp(44px,8.2vw,112px);margin:34px 0 28px}
 .lead{max-width:600px;font-size:19px}
-/* intro: fast long zoom with a liquid wave and a letter wave */
+/* intro: everything starts small and blurred, then grows out to full size with a liquid wave and a letter wave */
 body::before{content:"";position:fixed;inset:0;z-index:100;pointer-events:none;background:rgba(10,10,10,.62);-webkit-backdrop-filter:blur(26px);backdrop-filter:blur(26px);animation:veil .9s .05s cubic-bezier(.4,0,.2,1) forwards}
 @keyframes veil{to{opacity:0;-webkit-backdrop-filter:blur(0);backdrop-filter:blur(0)}}
-@keyframes pull{from{opacity:0;filter:blur(22px);transform:scale(2.2)}to{opacity:1;filter:blur(0);transform:scale(1)}}
-@keyframes pullh{from{opacity:0;filter:blur(26px);transform:scale(3)}to{opacity:1;filter:blur(0);transform:scale(1)}}
-@keyframes gridzoom{from{opacity:0;transform:scale(2.4)}to{opacity:.8;transform:scale(1)}}
+@keyframes pull{from{opacity:0;filter:blur(22px);transform:scale(.4)}to{opacity:1;filter:blur(0);transform:scale(1)}}
+@keyframes pullh{from{opacity:0;filter:blur(26px);transform:scale(.3)}to{opacity:1;filter:blur(0);transform:scale(1)}}
+@keyframes gridzoom{from{opacity:0;transform:scale(.5)}to{opacity:.8;transform:scale(1)}}
 @keyframes lwave{0%{transform:translateY(-.55em) rotate(-10deg);opacity:0}55%{transform:translateY(.14em) rotate(4deg);opacity:1}100%{transform:none;opacity:1}}
 #home h1{transform-origin:0 50%;animation:pullh 1s .08s both cubic-bezier(.16,1,.3,1)}
 #home .role{transform-origin:0 50%;animation:pull .9s .24s both cubic-bezier(.16,1,.3,1)}
@@ -142,7 +142,7 @@ header>*{pointer-events:auto}
 @media(max-width:900px){.cg{grid-template-columns:1fr 1fr}}@media(max-width:560px){.cg,.cg.two{grid-template-columns:1fr}}
 #home .wrap{width:100%}
 .hf{position:absolute;right:clamp(34px,6.5vw,110px);top:50%;transform:translateY(-48%);width:min(30vw,400px,51vh);aspect-ratio:4/5;z-index:1;animation:hcin 1.1s .3s both cubic-bezier(.16,1,.3,1)}
-@keyframes hcin{from{opacity:0;scale:2;filter:blur(22px)}to{opacity:1;scale:1;filter:blur(0)}}
+@keyframes hcin{from{opacity:0;scale:.4;filter:blur(22px)}to{opacity:1;scale:1;filter:blur(0)}}
 .hfo{position:absolute;inset:0;border:1.5px solid rgba(242,106,78,.5);border-radius:20px;transform:translate(16px,16px)}
 .hfi{position:absolute;inset:0;border-radius:20px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 70px rgba(214,58,28,.22)}
 .hfi img{display:block;width:100%;height:100%;object-fit:cover}
@@ -504,7 +504,7 @@ var CERTS=[
 ['https://lnkd.in/p/gRv4qixx','AI-Integrated Cloud, DevOps &amp; Cybersecurity','Industry-led course','IPSR Solutions Limited','6 May 2026','A 30-hour industry-led certificate course on AI-integrated cloud, DevOps and cybersecurity, delivered by IPSR Solutions Limited.'],
 ['https://lnkd.in/p/gJEEbCXb','Getting Started with OpenShift AI for Future Careers','Webinar','Red Hat × IPSR Solutions','23 Apr 2026','A Red Hat webinar introducing OpenShift AI and how it fits into future careers in cloud and AI.'],
 ['https://lnkd.in/p/gySbKfnB','Microsoft Cybersecurity Analyst','Professional certificate','Microsoft via Coursera','3 Mar 2026','A nine-course programme on threat mitigation, identity and access with Azure AD, Microsoft Defender and compliance, ending in a capstone and SC-900 exam preparation.'],
-['https://lnkd.in/p/gD_RdQW4','GCP Compute Engine, Virtual Machines &amp; Tailscale VPN Networking','Hands-on workshop','Google Cloud Club','6 Nov 2026','A hands-on Google Cloud Platform workshop on Compute Engine, virtual machines and Tailscale VPN networking, with practical exposure to cloud infrastructure and secure connectivity. Organised by Amal Jyothi College of Engineering and Marian College Kuttikkanam.']],
+['','GCP Compute Engine, Virtual Machines &amp; Tailscale VPN Networking','Hands-on workshop','Google Cloud Club','6 Nov 2026','A hands-on Google Cloud Platform workshop on Compute Engine, virtual machines and Tailscale VPN networking, with practical exposure to cloud infrastructure and secure connectivity. Organised by Amal Jyothi College of Engineering and Marian College Kuttikkanam.']],
 ACH=[
 ['https://lnkd.in/p/gqZGiBYJ','Rank 04 in Network Design &amp; Implementation','Event achievement','IPSR Solutions Limited','Summer Internship','Secured fourth rank in a network design and implementation challenge during the summer internship in cloud, DevOps and cybersecurity, strengthening my networking concepts, real-world implementation and problem-solving under pressure.'],
 ['https://lnkd.in/p/gdRzq28W','Project Udaan: Adani Facilities Visit','Educational visit','Adani Foundation','4 Feb 2026','Took part in Project Udaan, an educational visit to the Adani facilities at Trivandrum Port, representing Marian College Kuttikkanam.']];
