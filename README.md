@@ -25,7 +25,7 @@ This repository holds my personal portfolio. It introduces who I am, what I work
 ## Features
 
 - **Editorial dark design** with large type, an orange accent and a dotted grid hero.
-- **Launch animation**: shutters split open, the name decrypts with a glitch, the portrait prints in under a scan beam and the navigation drops in. It is skipped for visitors who prefer reduced motion.
+- **Launch animation**: a short terminal session types itself out, the screen collapses like an old CRT, and the page powers on with a flicker. It is skipped for visitors who prefer reduced motion.
 - **Floating navigation** with active-section highlighting, a side dot navigator and a menu button on small screens.
 - **Custom cursor** that spins while idle and stretches into corner brackets around links, buttons and cards.
 - **Scroll-driven "What I do"** section that pins to the screen and steps through four focus areas, each with a technical detail popup.

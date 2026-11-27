@@ -27,31 +27,19 @@ section{padding:clamp(90px,13vw,170px) 0;position:relative}
 h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.045em;line-height:.98}
 h2{font-size:clamp(44px,8.2vw,112px);margin:34px 0 28px}
 .lead{max-width:600px;font-size:19px}
-/* launch: shutters split open, name decrypts with a glitch, hero prints in under a scan beam */
-#boot{position:fixed;inset:0;z-index:100;display:flex;overflow:hidden;pointer-events:none;animation:bootgone 0s 2.1s forwards}
-@keyframes bootgone{to{visibility:hidden}}
-#boot i{flex:1;background:#0a0a0a;position:relative;animation:shut .75s cubic-bezier(.7,0,.2,1) both;animation-delay:calc(.15s + var(--d)*.07s)}
-#boot i::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#f26a4e;box-shadow:0 0 18px 4px rgba(242,106,78,.7)}
-@keyframes shut{to{transform:translateY(-101%)}}
-@keyframes glitch{0%{text-shadow:-5px 0 #19e3ff,5px 0 #ff2d55;transform:translateX(-8px) skewX(-8deg)}14%{text-shadow:4px 0 #19e3ff,-4px 0 #ff2d55;transform:translateX(7px) skewX(5deg)}28%{text-shadow:-3px 0 #19e3ff,3px 0 #ff2d55;transform:translateX(-4px)}42%{text-shadow:2px 0 #19e3ff,-2px 0 #ff2d55;transform:translateX(3px) skewX(-3deg)}56%{text-shadow:none;transform:none}70%{text-shadow:-2px 0 #19e3ff,2px 0 #ff2d55;transform:translateX(-2px)}100%{text-shadow:none;transform:none}}
-@keyframes wipe{from{clip-path:inset(-50px 100% -50px 0);opacity:.3}to{clip-path:inset(-50px -50px -50px -50px);opacity:1}}
-@keyframes beam{0%{top:0;opacity:1}85%{opacity:1}100%{top:100%;opacity:0}}
-@keyframes cin{from{opacity:0;transform:translate(var(--x),var(--y)) scale(1.7)}}
-@keyframes tickup{from{transform:translateY(100%);opacity:0}}
-@keyframes navdrop{from{transform:translateY(-150%);opacity:0}}
-@keyframes fin{from{opacity:0}}
-@keyframes gridon{from{opacity:0}to{opacity:.8}}
-#home h1{animation:glitch .75s .6s steps(1) both}
-#home .role{animation:wipe .7s .85s cubic-bezier(.6,0,.2,1) both}
-#home .lead{animation:wipe .8s 1s cubic-bezier(.6,0,.2,1) both}
-#home .btns{animation:wipe .8s 1.15s cubic-bezier(.6,0,.2,1) both}
-#home::before{animation:gridon 1.2s .5s both}
-.hf::after{content:"";position:absolute;left:-8%;right:-8%;height:3px;top:0;z-index:3;background:#fff;box-shadow:0 0 22px 7px rgba(242,106,78,.85);pointer-events:none;animation:beam .95s .75s cubic-bezier(.6,0,.2,1) both}
-.hf .tl{--x:-80px;--y:-80px}.hf .tr{--x:80px;--y:-80px}.hf .bl{--x:-80px;--y:80px}.hf .br{--x:80px;--y:80px}
-.hf .c{animation:cin .7s 1.55s both cubic-bezier(.2,.9,.3,1.3)}
-.tick{animation:tickup .7s 1.4s both cubic-bezier(.2,.8,.2,1)}
-#dots,.clock{animation:fin .6s 1.6s both}
-@media(min-width:1281px){.pill{animation:navdrop .8s 1.1s both cubic-bezier(.34,1.56,.64,1)}}
+/* launch: terminal boot types a short session, then the screen collapses like an old CRT and the page powers on */
+#boot{position:fixed;inset:0;z-index:100;pointer-events:none;background:repeating-linear-gradient(transparent 0 2px,rgba(255,255,255,.035) 2px 3px),radial-gradient(ellipse at center,#0c0c0e 40%,#050506);animation:crtoff .5s 2s cubic-bezier(.7,0,.3,1) forwards}
+@keyframes crtoff{0%{transform:scale(1,1);filter:brightness(1)}65%{transform:scale(1,.008);filter:brightness(2.2)}100%{transform:scale(0,.008);opacity:0}}
+#boot::after{content:"";position:absolute;inset:0;background:linear-gradient(#fff,#ffd8c8);opacity:0;animation:hot .5s 2s forwards}
+@keyframes hot{55%{opacity:0}75%{opacity:1}100%{opacity:1}}
+#boot .tty{position:absolute;left:clamp(24px,8vw,120px);top:50%;transform:translateY(-50%);font:500 clamp(14px,2.2vw,19px) "JetBrains Mono",ui-monospace,monospace;color:#d8d6d0}
+#boot .tl{margin:0 0 .55em;width:0;overflow:hidden;white-space:pre;border-right:.55ch solid #f26a4e;animation:type .26s steps(var(--n),end) var(--s) forwards,caret 0s calc(var(--s) + .27s) forwards}
+#boot .tl.r{color:#8a8a88}#boot .tl.ok{color:#f26a4e;text-shadow:0 0 12px rgba(242,106,78,.7)}
+@keyframes type{to{width:calc(var(--n)*1ch + .55ch)}}
+@keyframes caret{to{border-right-color:transparent}}
+@keyframes flick{0%{opacity:0;filter:brightness(3)}18%{opacity:1;filter:brightness(1.9)}30%{opacity:.35;filter:brightness(1)}46%{opacity:1;filter:brightness(1.35)}60%{opacity:.7}78%{opacity:1;filter:brightness(1.1)}100%{opacity:1;filter:brightness(1)}}
+#home .wrap,.hf,.pill,.tick,#dots,.clock{animation:flick .8s 2.35s both}
+@media(prefers-reduced-motion:reduce){#home .wrap,.hf,.pill,.tick,#dots,.clock{animation:none}}
 /* cursor reticle */
 #cur{position:fixed;left:0;top:0;width:30px;height:30px;margin:0;pointer-events:none;z-index:90;opacity:0;transition:opacity .3s;will-change:transform,width,height;--c:linear-gradient(#f3f1ec,#f3f1ec);background:var(--c) 0 0/9px 2px,var(--c) 0 0/2px 9px,var(--c) 100% 0/9px 2px,var(--c) 100% 0/2px 9px,var(--c) 0 100%/9px 2px,var(--c) 0 100%/2px 9px,var(--c) 100% 100%/9px 2px,var(--c) 100% 100%/2px 9px;background-repeat:no-repeat}
 #cur::after{content:"";position:absolute;left:50%;top:50%;width:4px;height:4px;margin:-2px 0 0 -2px;border-radius:50%;background:#f3f1ec;transition:background .25s}
@@ -153,8 +141,8 @@ header>*{pointer-events:auto}
 .cg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:50px}.cg.two{grid-template-columns:repeat(2,1fr)}.cc{display:flex;flex-direction:column;gap:10px;min-height:300px;background:var(--bg2);border:1px solid var(--line);border-radius:18px;padding:26px;transition:background .3s,border-color .3s,transform .4s}.cc:hover{background:#161618;border-color:#5a2a20;transform:translateY(-5px)}.cc .cn{font:400 13px "JetBrains Mono",ui-monospace,monospace;color:var(--ac);letter-spacing:.16em}.cc h3{font-size:clamp(19px,1.7vw,24px);line-height:1.2;font-weight:500;letter-spacing:-.025em;transition:color .3s}.cc .meta{font:400 12px "JetBrains Mono",ui-monospace,monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);line-height:1.6}.cc:hover h3{color:var(--ac)}.cc p{margin:0;font-size:15px}.cc .go{margin-top:auto;border-top:1px solid var(--line);padding-top:14px;display:flex;justify-content:space-between;font:400 13px "JetBrains Mono",ui-monospace,monospace;text-transform:uppercase;letter-spacing:.14em}.cc .go span{color:var(--ac);font-size:16px}
 @media(max-width:900px){.cg{grid-template-columns:1fr 1fr}}@media(max-width:560px){.cg,.cg.two{grid-template-columns:1fr}}
 #home .wrap{width:100%}
-.hf{position:absolute;right:clamp(34px,6.5vw,110px);top:50%;transform:translateY(-48%);width:min(30vw,400px,51vh);aspect-ratio:4/5;z-index:1;animation:print .95s .75s both cubic-bezier(.6,0,.2,1)}
-@keyframes print{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(-30px -30px -30px -30px)}}
+.hf{position:absolute;right:clamp(34px,6.5vw,110px);top:50%;transform:translateY(-48%);width:min(30vw,400px,51vh);aspect-ratio:4/5;z-index:1}
+
 .hfo{position:absolute;inset:0;border:1.5px solid rgba(242,106,78,.5);border-radius:20px;transform:translate(16px,16px)}
 .hfi{position:absolute;inset:0;border-radius:20px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.6),0 0 70px rgba(214,58,28,.22)}
 .hfi img{display:block;width:100%;height:100%;object-fit:cover}
@@ -249,7 +237,8 @@ footer{border-top:1px solid var(--line);padding-top:clamp(60px,8vw,100px)}
 </style>
 </head>
 <body>
-<div id="boot" aria-hidden="true"><i style="--d:4.5"></i><i style="--d:3.5"></i><i style="--d:2.5"></i><i style="--d:1.5"></i><i style="--d:0.5"></i><i style="--d:0.5"></i><i style="--d:1.5"></i><i style="--d:2.5"></i><i style="--d:3.5"></i><i style="--d:4.5"></i></div>
+<div id="boot" aria-hidden="true"><div class="tty"><p class="tl" style="--n:21;--s:.1s">$ ssh guest@portfolio</p><p class="tl r" style="--n:21;--s:.4s">connecting........ ok</p><p class="tl" style="--n:29;--s:.7s">$ nmap -p 22,80,443 localhost</p><p class="tl r" style="--n:25;--s:1s">80/tcp   open   portfolio</p><p class="tl" style="--n:19;--s:1.3s">$ ./launch --secure</p><p class="tl ok" style="--n:24;--s:1.6s">access granted. welcome.</p></div></div>
+<div id="sweep" aria-hidden="true"><b class="trail"></b><b class="line"></b><b class="pulse"></b></div>
 <div id="cur" aria-hidden="true"></div>
 
 <header>
@@ -570,16 +559,10 @@ bt.disabled=true;say('Sending…','');
 if(KEY){d.access_key=KEY;d.subject='New message from your portfolio';d.from_name='Portfolio contact form'}
 fetch(EP,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json().catch(function(){return{}}).then(function(j){if(!r.ok||j.success===false)throw 0;f.reset();ct.textContent='0 / 1000';say('Thank you, your message was sent. I will reply by email.','ok')})}).catch(function(){mail(d)}).then(function(){bt.disabled=false})});
 ['input','change'].forEach(function(ev){f.addEventListener(ev,function(e){if(e.target.getAttribute('aria-invalid')=='true')check()})})})();
-/* launch: remove the shutters once open, decrypt the name */
-(function(){var boot=$('#boot'),h1=$('#home h1');function end(){if(boot&&boot.parentNode)boot.remove()}
-if(boot)setTimeout(end,2300);
-if(!h1||matchMedia('(prefers-reduced-motion:reduce)').matches||!window.requestAnimationFrame){end();return}
-h1.setAttribute('aria-label','Abhishek P Suresh');
-var nodes=[];(function walk(n){[].slice.call(n.childNodes).forEach(function(c){if(c.nodeType==3)nodes.push({n:c,t:c.textContent});else if(c.nodeType==1)walk(c)})})(h1);
-var total=nodes.reduce(function(a,o){return a+o.t.length},0),G='ABCDEFGHJKLMNPQRSTUVWXYZ0123456789#$%&*<>/=+',t0=performance.now()+520,per=62;
-function frame(now){var rev=Math.floor((now-t0)/per),idx=0;nodes.forEach(function(o){var out='',i,ch;for(i=0;i<o.t.length;i++,idx++){ch=o.t.charAt(i);out+=(ch==' '||idx<rev)?ch:G.charAt(Math.floor(Math.random()*G.length))}o.n.textContent=out});
-if(rev<total+1)requestAnimationFrame(frame);else nodes.forEach(function(o){o.n.textContent=o.t})}
-requestAnimationFrame(frame)})();
+/* launch: remove the boot overlay once it has played */
+(function(){var boot=$('#boot');if(!boot)return;function end(){if(boot.parentNode)boot.remove()}
+if(matchMedia('(prefers-reduced-motion:reduce)').matches){end();return}
+setTimeout(end,3300)})();
 /* nav scroll */
 (function(){var OFF=84,tm;function y(id,t){return id=='home'?0:Math.max(0,t.getBoundingClientRect().top+scrollY+(parseFloat(getComputedStyle(t).paddingTop)||0)-OFF)}
 $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var id=a.getAttribute('href').slice(1),t=document.getElementById(id);if(!t)return;e.preventDefault();scrollTo({top:y(id,t),behavior:'smooth'});clearTimeout(tm);tm=setTimeout(function(){var d=y(id,t)-scrollY;if(Math.abs(d)>3)scrollTo({top:y(id,t),behavior:'auto'})},1100)})})})();
